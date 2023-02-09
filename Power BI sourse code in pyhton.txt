@@ -1,0 +1,13 @@
+from pytrends.request import TrendReq
+ 
+trend = TrendReq(hl='en-US',tz =360)   
+#keywords list we looking for 
+kw_list = ['facebook', 'YouTube','Instagram']
+
+#create payload 
+trend.build_payload(kw_list,timeframe='2021-01-01 2023-02-09')  #timeframe is for range of time
+
+#create a Data Frame of Google trends 
+ 
+data = trend.interest_over_time()  
+data = data.reset_index() #reset variable
